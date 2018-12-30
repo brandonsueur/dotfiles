@@ -1,0 +1,228 @@
+#!/usr/bin/env bash
+
+# Demander le mot de passe administrateur
+sudo -v
+
+# Keep-alive : met à jour l'horodatage `sudo` existant jusqu'à la fin de` .macos`
+while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+
+###############################################################################
+# UI/UX Général                                                               #
+###############################################################################
+
+# Réglez le délai d'attente sur 24 heures (la valeur par défaut est 1 heure)
+sudo pmset -a standbydelay 86400
+
+# Désactive les effets sonores au démarrage
+sudo nvram SystemAudioVolume=" "
+
+# Définir la taille de l'icône de la barre latérale sur moyen
+defaults write NSGlobalDomain NSTableViewDefaultSizeMode -int 2
+
+# Désactivez la boîte de dialogue "Êtes-vous sûr de vouloir ouvrir cette application?
+defaults write com.apple.LaunchServices LSQuarantine -bool false
+
+# Supprimer les doublons dans le menu « Ouvrir avec »
+/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user
+
+# Révéler l'adresse IP, le nom d'hôte, la version du système d'exploitation, etc. en cliquant sur l'horloge
+# dans la fenêtre de connexion
+sudo defaults write /Library/Preferences/com.apple.loginwindow AdminHostInfo HostName
+
+# Vérifiez les mises à jour logicielles quotidiennement, pas seulement une fois par semaine
+defaults write com.apple.SoftwareUpdate ScheduleFrequency -int 1
+
+# Désactive les guillemets intelligents car ils sont agaçants lors de la saisie de code
+defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
+
+# Désactiver les traits intelligents car ils sont agaçants lors de la saisie du code
+defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
+
+###############################################################################
+# Pavé tactile, souris, clavier, accessoires Bluetooth et entrée audio        #
+###############################################################################
+
+# Augmenter la qualité du son pour les écouteurs / casques Bluetooth
+defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int 40
+
+# Définissez le fuseau horaire; voir `sudo systemsetup -listtimezones` pour d'autres valeurs
+sudo systemsetup -settimezone "Europe/Paris" > /dev/null
+
+###############################################################################
+# Écran                                                                       #
+###############################################################################
+
+# Exiger un mot de passe immédiatement après le sommeil ou l'économiseur d'écran
+defaults write com.apple.screensaver askForPassword -int 1
+defaults write com.apple.screensaver askForPasswordDelay -int 0
+
+###############################################################################
+# Finder                                                                      #
+###############################################################################
+
+# Finder: désactiver les animations de fenêtre et les animations Get Info
+defaults write com.apple.finder DisableAllAnimations -bool false
+
+# Finder: montrer la barre de chemin
+defaults write com.apple.finder ShowPathbar -bool true
+
+# Lorsque vous effectuez une recherche, recherchez le dossier actuel par défaut
+defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"
+
+# Désactiver l'avertissement lors de la modification d'une extension de fichier
+defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
+
+# Activer l'alignement sur la grille pour les icônes sur le bureau et dans d'autres vues d'icônes
+/usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:arrangeBy grid" $HOME/Library/Preferences/com.apple.finder.plist
+/usr/libexec/PlistBuddy -c "Set :FK_StandardViewSettings:IconViewSettings:arrangeBy grid" $HOME/Library/Preferences/com.apple.finder.plist
+/usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:arrangeBy grid" $HOME/Library/Preferences/com.apple.finder.plist
+
+# Augmentez l'espacement de la grille pour les icônes sur le bureau et dans d'autres vues d'icônes
+/usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:gridSpacing 100" $HOME/Library/Preferences/com.apple.finder.plist
+/usr/libexec/PlistBuddy -c "Set :FK_StandardViewSettings:IconViewSettings:gridSpacing 100" $HOME/Library/Preferences/com.apple.finder.plist
+/usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:gridSpacing 100" $HOME/Library/Preferences/com.apple.finder.plist
+
+# Réduire la taille des icônes sur le bureau et dans d'autres affichages d'icônes
+/usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:iconSize 48" $HOME/Library/Preferences/com.apple.finder.plist
+/usr/libexec/PlistBuddy -c "Set :FK_StandardViewSettings:IconViewSettings:iconSize 48" $HOME/Library/Preferences/com.apple.finder.plist
+/usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:iconSize 48" $HOME/Library/Preferences/com.apple.finder.plist
+
+# Désactiver l'avertissement avant de vider la corbeille
+defaults write com.apple.finder WarnOnEmptyTrash -bool false
+
+# Masquer les icônes pour les disques durs, les serveurs et les supports amovibles sur le bureau
+defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool false
+defaults write com.apple.finder ShowHardDrivesOnDesktop -bool false
+defaults write com.apple.finder ShowMountedServersOnDesktop -bool false
+defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool false
+
+# Afficher le dossier ~ /Library
+chflags nohidden $HOME/Library
+
+# Développez les volets d’informations sur les fichiers suivants:
+# « Général », « Ouvrir avec » et « Partage et autorisations »
+defaults write com.apple.finder FXInfoPanesExpanded -dict \
+    General -bool true \
+    OpenWith -bool true \
+    Privileges -bool true
+
+# Auto hide menu bar
+defaults write NSGlobalDomain _HIHideMenuBar -bool false
+
+###############################################################################
+# Dock, Dashboard, and hot corners                                            #
+###############################################################################
+
+# Barre de menu sombre et dock
+defaults write $HOME/Library/Preferences/.GlobalPreferences.plist AppleInterfaceTheme -string "Dark"
+
+# Activer l’effet de survol en surbrillance pour la vue de grille d’une pile (Dock)
+defaults write com.apple.dock mouse-over-hilite-stack -bool true
+
+# Modifier l’effet de fenêtre minimiser / maximiser
+defaults write com.apple.dock mineffect -string "scale"
+
+# Minimiser les fenêtres dans l’icône de leur application
+defaults write com.apple.dock minimize-to-application -bool true
+
+# Effacer toutes les icônes d'application (par défaut) du Dock
+# Ceci n’est vraiment utile que lors de la configuration d’un nouveau Mac, ou si vous n’utilisez pas
+# le Dock pour lancer des applications.
+defaults write com.apple.dock persistent-apps -array
+
+# Grouper les fenêtres par application dans Mission Control
+defaults write com.apple.dock expose-group-by-app -bool true
+
+# Désactiver le tableau de bord
+defaults write com.apple.dashboard mcx-disabled -bool true
+
+# Ne pas afficher le tableau de bord comme un espace
+defaults write com.apple.dock dashboard-in-overlay -bool true
+
+# Supprimer le délai de masquage automatique du Dock
+defaults write com.apple.dock autohide-delay -float 0
+
+# Supprime l'animation en masquant / affichant le Dock
+defaults write com.apple.dock autohide-time-modifier -float 0
+
+# Masquer et afficher automatiquement le Dock
+defaults write com.apple.dock autohide -bool false
+
+# Ajouter iOS & Watch Simulator à Launchpad
+sudo ln -sf "/Applications/Xcode.app/Contents/Developer/Applications/Simulator.app" "/Applications/Simulator.app"
+sudo ln -sf "/Applications/Xcode.app/Contents/Developer/Applications/Simulator (Watch).app" "/Applications/Simulator (Watch).app"
+
+###############################################################################
+# Safari & WebKit                                                             #
+###############################################################################
+
+# Confidentialité: n’envoyez pas de requêtes de recherche à Apple
+defaults write com.apple.Safari UniversalSearchEnabled -bool false
+defaults write com.apple.Safari SuppressSearchSuggestions -bool true
+
+###############################################################################
+# Couriel                                                                     #
+###############################################################################
+
+# Désactiver les animations d'envoi et de réponse dans Mail.app
+defaults write com.apple.mail DisableReplyAnimations -bool true
+defaults write com.apple.mail DisableSendAnimations -bool true
+
+# Copier les adresses e-mail sous la forme `foo@exemple.com` au lieu de `Foo Bar<foo@example.com>` dans Mail.app
+defaults write com.apple.mail AddressesIncludeNameOnPasteboard -bool false
+
+# Désactiver les pièces jointes en ligne (il suffit d'afficher les icônes)
+defaults write com.apple.mail DisableInlineAttachmentViewing -bool true
+
+###############################################################################
+# Terminal & iTerm 2                                                          #
+###############################################################################
+
+# Utilisez uniquement UTF-8 dans Terminal.app
+defaults write com.apple.terminal StringEncodings -array 4
+
+# Ne pas afficher la popup agaçante lorsque vous quittez iTerm
+defaults write com.googlecode.iterm2 PromptOnQuit -bool false
+
+###############################################################################
+# Moniteur d'activité                                                         #
+###############################################################################
+
+# Afficher la fenêtre principale lors du lancement
+defaults write com.apple.ActivityMonitor OpenMainWindow -bool true
+
+# Visualisez l'utilisation du processeur dans l'icône du moniteur d'activité Activity Dock
+defaults write com.apple.ActivityMonitor IconType -int 5
+
+# Afficher tous les processus dans le moniteur d'activité
+defaults write com.apple.ActivityMonitor ShowCategory -int 0
+
+# Trier les résultats du moniteur d'activité par utilisation de la CPU
+defaults write com.apple.ActivityMonitor SortColumn -string "CPUUsage"
+defaults write com.apple.ActivityMonitor SortDirection -int 0
+
+###############################################################################
+# Date & Heure                                                                #
+###############################################################################
+
+# DateFormat personnalisé
+defaults write com.apple.menuextra.clock DateFormat "EEE MMM — H:mm"
+
+###############################################################################
+# Photos                                                                      #
+###############################################################################
+
+# Empêcher les photos de s'ouvrir automatiquement lorsque des appareils sont branchés
+defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool true
+
+###############################################################################
+# Fermer les applications touchées                                            #
+###############################################################################
+
+for app in "Activity Monitor" "Address Book" "Calendar" "Contacts" "cfprefsd" \
+    "Dock" "Finder" "Mail" "Messages" "Photos" "Safari" "SystemUIServer" \
+    "Terminal" "Tweetbot" "iCal"; do
+    killall "${app}" &> /dev/null
+done
+
+echo "✨ Finish. Notez que certaines de ces modifications nécessitent une déconnexion / un redémarrage pour prendre effet."
