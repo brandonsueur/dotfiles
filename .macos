@@ -125,11 +125,6 @@ defaults write com.apple.dock mineffect -string "scale"
 # Minimiser les fenêtres dans l’icône de leur application
 defaults write com.apple.dock minimize-to-application -bool true
 
-# Effacer toutes les icônes d'application (par défaut) du Dock
-# Ceci n’est vraiment utile que lors de la configuration d’un nouveau Mac, ou si vous n’utilisez pas
-# le Dock pour lancer des applications.
-defaults write com.apple.dock persistent-apps -array
-
 # Grouper les fenêtres par application dans Mission Control
 defaults write com.apple.dock expose-group-by-app -bool true
 
@@ -200,13 +195,6 @@ defaults write com.apple.ActivityMonitor ShowCategory -int 0
 # Trier les résultats du moniteur d'activité par utilisation de la CPU
 defaults write com.apple.ActivityMonitor SortColumn -string "CPUUsage"
 defaults write com.apple.ActivityMonitor SortDirection -int 0
-
-###############################################################################
-# Date & Heure                                                                #
-###############################################################################
-
-# DateFormat personnalisé
-defaults write com.apple.menuextra.clock DateFormat "EEE MMM — H:mm"
 
 ###############################################################################
 # Photos                                                                      #
