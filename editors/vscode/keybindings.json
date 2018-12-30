@@ -1,0 +1,10 @@
+[
+  {
+    "key": "cmd+b",
+    "command": "workbench.action.toggleSidebarVisibility"
+  },
+  {
+    "key": "cmd+i",
+    "command": "expandLineSelection",
+  },
+]

@@ -1,0 +1,50 @@
+{
+  "editor.fontSize": 15,
+  "editor.renderWhitespace": "all",
+  "editor.renderControlCharacters": true,
+  "editor.renderIndentGuides": true,
+  "editor.rulers": [
+    80,
+    100
+  ],
+  "editor.fontFamily": "Fira Code",
+  "editor.fontLigatures": true,
+  "editor.minimap.enabled": false,
+  "editor.minimap.renderCharacters": false,
+  "editor.tabSize": 2,
+  "editor.wordWrap": "wordWrapColumn",
+  "editor.wordWrapColumn": 120,
+  "editor.wordSeparators": "`~!@#$%^&*()=+[{]}\\|;:'\",.<>/?",
+  "editor.quickSuggestionsDelay": 0,
+  "editor.formatOnPaste": true,
+  "diffEditor.ignoreTrimWhitespace": false,
+
+  "files.insertFinalNewline": true,
+  "files.trimTrailingWhitespace": true,
+  "files.trimFinalNewlines": true,
+  "files.associations": {
+    ".prettierrc": "json",
+    ".php": "php"
+  },
+
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.fontAliasing": "antialiased",
+  "workbench.startupEditor": "newUntitledFile",
+  "workbench.colorTheme": "Nord",
+
+  "search.exclude": { "**/node_modules": true },
+
+  "emmet.triggerExpansionOnTab": true,
+  "emmet.showSuggestionsAsSnippets": true,
+
+  "[php]": { "editor.tabSize": 4 },
+  "[json]": { "editor.tabSize": 4 },
+  "[markdown]": {
+    "files.trimTrailingWhitespace": false,
+    "files.trimFinalNewlines": false,
+    "editor.fontFamily": "'Fira Code'"
+  },
+
+  "extensions.ignoreRecommendations": true,
+  "window.zoomLevel": 0,
+}
