@@ -1,0 +1,57 @@
+[user]
+	name = brandonsueur
+	username = brandonsueur
+	email = gynidark@gmail.com
+
+[core]
+	excludesfile = ~/.gitignore
+	autocrlf = false
+	autoclrf = false
+	
+[web]
+	browser = google-chrome
+
+[color]
+	ui = always
+	diff = always
+	status = always
+	branch = always
+	interactive = always
+	pager = true
+	grep = always
+	decorate = always
+	showbranch = always
+
+[color "branch"]
+	current = yellow bold
+	local = green bold
+	remote = cyan bold
+
+[color "diff"]
+	meta = yellow bold
+	frag = magenta bold
+	old = red bold
+	new = green bold
+	whitespace = red reverse
+
+[color "status"]
+	added = green bold
+	changed = yellow bold
+	untracked = red bold
+
+[log]
+    date = short
+
+[format]
+    pretty = '%C(yellow)%h%Creset %C(magenta)%cd%Creset %d %s'
+
+[alias]
+	s = status
+	sb = status -sb
+	#############
+	a = add .
+	b = branch -v
+	co = checkout
+	#############
+	l = log --oneline --color --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
