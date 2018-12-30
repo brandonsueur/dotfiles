@@ -4,7 +4,7 @@
 	email = gynidark@gmail.com
 
 [core]
-	excludesfile = ~/.gitignore
+	excludesfile = ~/.gitignore_global
 	autocrlf = false
 	autoclrf = false
 	
