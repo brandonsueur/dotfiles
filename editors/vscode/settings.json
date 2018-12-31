@@ -28,7 +28,6 @@
   },
 
   "workbench.iconTheme": "material-icon-theme",
-  "workbench.fontAliasing": "antialiased",
   "workbench.startupEditor": "newUntitledFile",
   "workbench.colorTheme": "Nord",
 
