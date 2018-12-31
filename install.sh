@@ -29,5 +29,3 @@ mv .gitconfig ~/
 
 # MacOs preferences
 source .macos
-
-rm -rf *
