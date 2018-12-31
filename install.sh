@@ -25,8 +25,13 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ./zsh/plugins/zsh-aut
 
 # move files
 mv .gitignore_global ~/
-mv .gitconfig ~/
+mv .gitcocfig ~/
 mv vscode/* ~/vscode/
+
+# Editor and Git
+mv * /Users/brandonsueur/Library/Application\ Support/Code/User
+mv .gitignore_global ~/
+mv .gitconfig ~/
 
 # MacOs preferences
 source .macos
