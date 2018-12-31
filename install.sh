@@ -22,12 +22,6 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/mas
 git clone https://github.com/zsh-users/zsh-syntax-highlighting ./zsh/plugins/zsh-syntax-highlighting
 git clone https://github.com/zsh-users/zsh-autosuggestions ./zsh/plugins/zsh-autosuggestions
 
-
-# move files
-mv .gitignore_global ~/
-mv .gitcocfig ~/
-mv vscode/* ~/vscode/
-
 # Editor and Git
 mv * /Users/brandonsueur/Library/Application\ Support/Code/User
 mv .gitignore_global ~/
