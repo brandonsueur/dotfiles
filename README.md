@@ -1,6 +1,6 @@
 # dotfiles
 
-![screenshot](https://i.ibb.co/nmfpG6y/Capture-d-e-cran-2019-01-01-a-22-29-34.png)
+![screenshot](http://image.noelshack.com/fichiers/2019/01/2/1546379407-capture-d-ecran-2019-01-01-a-22-29-34.png)
 
 ### 📕  Getting Started
 **Warning**: If you want to give these dotfiles a try, you should first fork this repository, review the code, and remove things you don’t want or need. Don’t blindly use my settings unless you know what that entails. Use at your own risk!
