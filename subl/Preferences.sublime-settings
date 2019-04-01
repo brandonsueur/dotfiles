@@ -1,0 +1,36 @@
+{
+  "block_caret": true,
+  "color_scheme": "Packages/Theme - One Dark/Widget - One Dark.tmTheme",
+  "detect_indentation": true,
+  "enable_tab_scrolling": false,
+  "fold_buttons": false,
+  "folder_exclude_patterns":
+  [
+    ".git",
+    ".sass-cache",
+    "node_modules"
+  ],
+  "font_face": "Droid Sans Mono",
+  "font_options":
+  [
+    "no_round",
+    "gray_antialias"
+  ],
+  "font_size": 15,
+  "highlight_line": false,
+  "highlight_modified_tabs": true,
+  "ignored_packages":
+  [
+    "Vintage"
+  ],
+  "line_padding_bottom": 1,
+  "line_padding_top": 1,
+  "mini_diff": false,
+  "original_color_scheme": "Packages/Babel/Monokai Phoenix.tmTheme",
+  "show_git_status": false,
+  "tab_size": 2,
+  "theme": "Default.sublime-theme",
+  "translate_tabs_to_spaces": true,
+  "trim_trailing_white_space_on_save": false,
+  "word_wrap": true
+}
