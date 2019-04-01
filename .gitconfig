@@ -48,12 +48,11 @@
 [alias]
 	s = status
 	sb = status -sb
-  
-	#############
+
 	a = add .
 	b = branch -v
+	p = pull
 	co = checkout
   
-	#############
 	l = log --oneline --color --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
