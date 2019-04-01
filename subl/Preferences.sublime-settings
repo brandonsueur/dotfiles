@@ -32,5 +32,7 @@
   "theme": "Default.sublime-theme",
   "translate_tabs_to_spaces": true,
   "trim_trailing_white_space_on_save": false,
-  "word_wrap": true
+  "word_wrap": true,
+  "tree_animation_enabled": false,
+  "animation_enabled": false,
 }
