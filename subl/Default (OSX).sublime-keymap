@@ -5,4 +5,5 @@
   { "keys": ["super+n"], "command": "advanced_new_file_new"},
   { "keys": ["super+:"], "command": "toggle_comment", "args": { "block": false } },
   { "keys": ["super+shift+:"], "command": "toggle_comment", "args": { "block": true } },
+  { "keys": ["option+'"], "command": "expand_selection_to_quotes"}
 ]
