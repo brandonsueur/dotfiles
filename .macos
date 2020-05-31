@@ -38,6 +38,9 @@ defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
 # Désactiver les traits intelligents car ils sont agaçants lors de la saisie du code
 defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
 
+# Afficher tous les éléments cachés
+defaults write com.apple.Finder AppleShowAllFiles true 
+
 ###############################################################################
 # Pavé tactile, souris, clavier, accessoires Bluetooth et entrée audio        #
 ###############################################################################
