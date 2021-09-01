@@ -1,0 +1,67 @@
+{
+  "sync.gist": "7b608e69604ef80f9244ee38f4672a67",
+
+  "window.nativeTabs": true,
+
+  "editor.cursorStyle": "line-thin",
+  "editor.fontFamily": "PragmataPro,Dank Mono, Monoid, Fira Code, Monaco, JetBrains Mono, monospace, 'SF Mono', Menlo, 'Courier New'",
+  "editor.fontLigatures": true,
+  "editor.lineHeight": 38,
+  "editor.fontSize": 20,
+  "editor.foldingImportsByDefault": false,
+  "editor.fontWeight": "200",
+  "editor.minimap.enabled": false,
+  "editor.minimap.renderCharacters": false,
+  "editor.overviewRulerBorder": false,
+  "editor.matchBrackets": "always",
+  "editor.renderLineHighlight": "all",
+  "editor.occurrencesHighlight": false,
+  "editor.renderIndentGuides": true,
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  
+  "terminal.integrated.fontSize": 14,
+  "terminal.integrated.lineHeight": 1.23,
+
+  "prettier.printWidth": 80,
+
+  "workbench.editor.showIcons": false,
+
+  // langages (javascript, typescript)
+  "[javascript]": {
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true
+    }
+  },
+  "[typescript]": {
+    "editor.formatOnSave": false,
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true
+    }
+  },
+  // "javascript.updateImportsOnFileMove.enabled": "never",
+  "[javascriptreact]": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true
+    }
+  },
+  "[typescriptreact]": {
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true
+    }
+  },
+  "workbench.startupEditor": "newUntitledFile",
+  "workbench.productIconTheme": "fluent-icons",
+  "breadcrumbs.enabled": false,
+  "editor.renderWhitespace": "none",
+  "terminal.integrated.tabs.enabled": true,
+  "terminal.integrated.tabs.location": "left",
+
+  "todohighlight.isEnable": true,
+  "workbench.iconTheme": "rose-pine-icons",
+  "workbench.activityBar.visible": false,
+  "workbench.colorTheme": "Moonlight",
+  "tabnine.experimentalAutoImports": true
+}
