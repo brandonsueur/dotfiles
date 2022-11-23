@@ -1,0 +1,15 @@
+[
+  {
+    "key": "cmd+2",
+    "command": "workbench.scm.focus"
+  },
+  {
+    "key": "cmd+e",
+    "command": "workbench.explorer.fileView.focus"
+  },
+  {
+    "key": "cmd+shift+l",
+    "command": "settings.cycle.lineNumbers",
+    "when": "editorFocus"
+  }
+]
